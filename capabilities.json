@@ -1,0 +1,32 @@
+{
+  "set": {
+    "browser": [
+      {
+        "UIType": "DesktopWeb",
+        "capability": "chrome"
+      }
+    ],
+    "ios": [
+      {
+        "capability": "iphone",
+        "UIType": "MobileIOSApp",
+        "automationName": "XCUITest",
+        "deviceName": "iOS Device",
+        "app": "",
+        "udid": "",
+        "fullReset": "true",
+        "remote": ""
+      }
+    ],
+    "android": [
+      {
+        "capability": "android",
+        "UIType": "MobileAndroidApp",
+        "deviceName": "Android Device",
+        "app": "",
+        "fullReset": "true",
+        "remote":""
+      }
+    ]
+  }
+}

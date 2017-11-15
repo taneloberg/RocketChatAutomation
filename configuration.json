@@ -1,0 +1,28 @@
+{
+  "videoRecord": true,
+  "videoDir": "build/cify/videos/",
+  "capabilities": {
+    "android": {
+      "capability": "android",
+      "UIType": "MobileAndroidApp",
+      "deviceName": "Android Device",
+      "app": "",
+      "fullReset": "true",
+      "remote": ""
+    },
+    "browser": {
+      "UIType": "DesktopWeb",
+      "capability": "chrome"
+    },
+    "ios": {
+      "capability": "iphone",
+      "UIType": "MobileIOSApp",
+      "udid": "",
+      "app": "",
+      "deviceName": "iPhone",
+      "platformName": "iOS",
+      "automationName": "XCUITest",
+      "remote": ""
+    }
+  }
+}
