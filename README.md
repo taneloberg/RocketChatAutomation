@@ -101,7 +101,12 @@ On Windows
 ![Run/Debug configuration](src/test/resources/introduction/rundebugconf.png)
 
 
-### Add remote capability to properties and/or configuration
+### Add missing capabilities to properties and/or configuration
+
+- **remote** capability - Appium/Selenium service ip
+- **app** capability - application path (http or local)
+- **udid** capability iOS device identifier
+
 
 - configuration.json
 
@@ -131,6 +136,7 @@ Add the Device Farm service URL to remote capability
       "deviceName": "iOS Device",
       "app": "src/test/resources/applications/RocketChat.ipa",
       "fullReset": "true",
+      "udid":"a04757611e60e0e647cfc6e698617e8efe1e6231",
       "autoAcceptAlerts": "true",
       "remote": "http://192.168.99.100:4444/wd/hub"
     }
