@@ -16,7 +16,6 @@ This project uses Cify, a cross-platform test automation framework for mobile te
 
 - Java 8
 - IntelliJ IDEA (or similar IDE)
-- APK and IPA files are included to **src/test/resources/applications** folder
 
 ### Preconditions for real devices
 
@@ -44,7 +43,6 @@ This project uses Cify, a cross-platform test automation framework for mobile te
     |       |       |-- implementation
     |       |       |-- steps
     |       |-- resources
-    |       |       |-- applications
     |       |       |-- features
     |       |       |-- introduction
     |-- build.gradle
@@ -65,8 +63,6 @@ This project uses Cify, a cross-platform test automation framework for mobile te
 **src/test/groovy/implementation** - Implementation layer, client specific implementation
 
 **src/test/groovy/steps** - Cucumber step definitions
-
-**src/test/resources/applications** - Applications files must be here (.apk/.ipa)
 
 **src/test/resources/features** - Cucumber Feature files
 
@@ -101,16 +97,15 @@ On Windows
 ![Run/Debug configuration](src/test/resources/introduction/rundebugconf.png)
 
 
-### Add missing capabilities to properties and/or configuration
+### Add missing capabilities to capabilities.json and  configuration.json
 
-- **remote** capability - Appium/Selenium service ip
-- **app** capability - application path (http or local)
+- **remote** capability - Appium service ip to mobile devices (android & iOS)
 - **udid** capability iOS device identifier
 
 
 - configuration.json
 
-Add the Device Farm service URL to remote capability
+Add the appium service URL to remote capability and udid as a iOS identifier
 
 ```
 {
@@ -121,24 +116,26 @@ Add the Device Farm service URL to remote capability
       "capability": "android",
       "UIType": "MobileAndroidApp",
       "deviceName": "Android Device",
-      "app": "src/test/resources/applications/RocketChat.apk",
+      "app": "https://s3-eu-west-1.amazonaws.com/rocket-chat-applications/RocketChat.apk",
+      "appPackage": "chat.rocket.android",
+      "appActivity": ".activity.MainActivity",
       "fullReset": "true",
-      "remote": "http://192.168.99.100:4444/wd/hub"
+      "remote": "http://0.0.0.0:4723/wd/hub"
     },
     "browser": {
       "UIType": "DesktopWeb",
-      "capability": "chrome",
-      "remote": "http://192.168.99.100:4444/wd/hub"
+      "capability": "chrome"
     },
     "ios": {
       "capability": "iphone",
       "UIType": "MobileIOSApp",
-      "deviceName": "iOS Device",
-      "app": "src/test/resources/applications/RocketChat.ipa",
+      "udid": "a04757611e60e0e647cfc6e698617e8efe1e6231",
+      "app": "https://s3-eu-west-1.amazonaws.com/rocket-chat-applications/RocketChat.ipa",
+      "deviceName": "iPhone",
+      "platformName": "iOS",
+      "automationName": "XCUITest",
       "fullReset": "true",
-      "udid":"a04757611e60e0e647cfc6e698617e8efe1e6231",
-      "autoAcceptAlerts": "true",
-      "remote": "http://192.168.99.100:4444/wd/hub"
+      "remote": "http://0.0.0.0:4723/wd/hub"
     }
   }
 }
@@ -178,7 +175,6 @@ Plug-and-play will use **configuration.json** for configuration file.
 
 - Framework configuration JSON implemented
 - **remote** capability is selected in configuration.json
-- **app** capability is selected for mobiles in configuration.json
 - **udid** capability is selected for iOS in configuration.json
 
 ```
@@ -560,11 +556,6 @@ class SettingsPageObjects extends PageObjects {
     }
 }
 ```
-
-## Troubleshooting guide
-
-- **Tests are failing on Open application command.**
-Possible causes are that .ipa or .apk failes are missing from the src/test/resources/applications folder or remote capability/farmUrl is not set.
 
 ## How to setup Jenkins Job for Test Automation?
 

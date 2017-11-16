@@ -14,6 +14,10 @@ Given(~/^user opens (.+) application$/) { DeviceCategory category ->
     ActionsImpl.getCoreActions().openApplication()
 }
 
+When(~/^user opens "([^"]*)" url$/) { String url ->
+    DeviceManager.getInstance().getActiveDevice(DeviceCategory.BROWSER).getDriver().get(url)
+}
+
 After {
     DeviceManager.getInstance().quitAllDevices()
 }

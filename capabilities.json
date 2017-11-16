@@ -10,10 +10,11 @@
       {
         "capability": "iphone",
         "UIType": "MobileIOSApp",
-        "automationName": "XCUITest",
-        "deviceName": "iOS Device",
-        "app": "",
         "udid": "",
+        "app": "https://s3-eu-west-1.amazonaws.com/rocket-chat-applications/RocketChat.ipa",
+        "deviceName": "iPhone",
+        "platformName": "iOS",
+        "automationName": "XCUITest",
         "fullReset": "true",
         "remote": ""
       }
@@ -23,9 +24,11 @@
         "capability": "android",
         "UIType": "MobileAndroidApp",
         "deviceName": "Android Device",
-        "app": "",
+        "app": "https://s3-eu-west-1.amazonaws.com/rocket-chat-applications/RocketChat.apk",
+        "appPackage": "chat.rocket.android",
+        "appActivity": ".activity.MainActivity",
         "fullReset": "true",
-        "remote":""
+        "remote": ""
       }
     ]
   }
