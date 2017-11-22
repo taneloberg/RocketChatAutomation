@@ -16,6 +16,7 @@ This project uses Cify, a cross-platform test automation framework for mobile te
 
 - Java 8
 - IntelliJ IDEA (or similar IDE)
+- adb is installed (android-platform-tools)
 
 ### Preconditions for real devices
 
