@@ -25,6 +25,13 @@ This project uses Cify, a cross-platform test automation framework for mobile te
 - Follow introduction how to test with iOS 10 from [XCUITEST Driver](https://github.com/appium/appium-xcuitest-driver#real-devices)
 - Orientation lock is disabled
 
+#### Android
+Execute following command on terminal:
+
+    adb devices
+    
+You should see your device and ID
+
 ## How the project structure looks like?
 
 ### Project structure
